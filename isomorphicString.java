@@ -69,3 +69,23 @@ class Solution {
 
     }
 }
+
+// method 3 - single pass with two arrays: we can optimize the previous method by using a single pass through the strings and updating both mappings simultaneously. This approach also has a space complexity of O(1) since we are using fixed-size arrays to store the mappings.  
+
+class Solution {
+    public boolean isIsomorphic(String s, String t) {
+        int[] firstOccurrenceS = new int[256];
+        int[] firstOccurrenceT = new int[256];
+        for(int i = 0; i < s.length(); i++){
+            char charS = s.charAt(i);
+            char charT = t.charAt(i);
+
+            if(firstOccurrenceS[charS] != firstOccurrenceT[charT]){
+                return false;
+            }
+            firstOccurrenceS[charS] = i + 1;
+            firstOccurrenceT[charT] = i + 1;
+        }
+        return true;
+    }
+}
