@@ -60,6 +60,18 @@ class Main {
         }
         return -1;
     }
+
+    static Node removesTail(Node head){
+        if(head == null || head.next == null){
+            return null;
+        }
+        Node temp = head;
+        while(temp.next.next != null){
+          temp = temp.next;  
+        }
+        temp.next = null;
+        return head;
+    }
     public static void main(String[] args) {
         int[] arr = {10, 20 , 30 , 40 , 50};
         Node head = arrayToLl(arr);
@@ -68,6 +80,9 @@ class Main {
         System.out.println("length:  " + getLength(head));
         System.out.println("Search 30:" + search(head, 30));
         System.out.println("position of 30:" + searchPosition(head, 30));
-        
+        //System.out.println("Removing tail...");
+        head = removesTail(head);
+        System.out.print("List after removing tail: ");
+        printList(head);
     }
 }
