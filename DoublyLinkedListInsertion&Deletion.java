@@ -58,6 +58,24 @@ public class Main {
         tail.back = newNode;
         return head;
     }
+    static Node insertBeforeKthElement(Node head, int k , int val){
+        if(k == 1){
+            return insertBeforeHead(head, val);
+        }
+        Node temp = head;
+        int cnt = 0;
+        while(temp != null){
+            cnt++;
+            if(cnt == k) break;
+            temp = temp.next;
+        }
+        Node prev = temp.back;
+        Node newNode = new Node(val, temp, prev);
+        prev.next = newNode;
+        temp.back = newNode;
+        return head;
+    }
+
     
 
     public static void main(String[] args){
@@ -65,7 +83,9 @@ public class Main {
 
         Node head = convertArr2Dll(arr);
 // head = insertBeforeHead(head, 10);
-head = insertBeforeTail(head, 10);
+// 
+// head = insertBeforeTail(head, 10);
+head = insertBeforeKthElement(head, 3, 10);
         print(head);
     }
 } 
