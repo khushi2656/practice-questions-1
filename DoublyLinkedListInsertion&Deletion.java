@@ -75,7 +75,12 @@ public class Main {
         temp.back = newNode;
         return head;
     }
-
+static void insertBeforeNode(Node node, int val){
+        Node prev = node.back;
+        Node newNode = new Node(val, node, prev);
+        prev.next = newNode;
+        node.back = newNode;
+    }
     
 
     public static void main(String[] args){
@@ -85,7 +90,8 @@ public class Main {
 // head = insertBeforeHead(head, 10);
 // 
 // head = insertBeforeTail(head, 10);
-head = insertBeforeKthElement(head, 3, 10);
+// head = insertBeforeKthElement(head, 3, 10);
+insertBeforeNode(head.next.next, 10);
         print(head);
     }
 } 
