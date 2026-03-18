@@ -16,7 +16,7 @@ class Node {
     }
 }
 
-public class Main {
+class Main {
 
     static Node convertArr2Dll(int[] arr){
         Node head = new Node(arr[0]);
@@ -94,4 +94,4 @@ static void insertBeforeNode(Node node, int val){
 insertBeforeNode(head.next.next, 10);
         print(head);
     }
-} 
+}
