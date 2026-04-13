@@ -1,3 +1,4 @@
+import java.util.Stack;
 class MyQueue {
 Stack<Integer> s1;
 Stack<Integer> s2;
